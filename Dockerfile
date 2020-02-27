@@ -3,7 +3,7 @@ FROM centos:7
 MAINTAINER "Apirath Promyan @ https://github.com/p-apirath/apacheds"
 
 ENV JDK_VERSION=1.8.0 \
-    APACHEDS_VERSION=2.0.0.AM25
+    APACHEDS_VERSION=2.0.0.AM25 \
     APACHEDS_INSTANCE=/var/lib/apacheds-${APACHEDS_VERSION}/default
     
 ADD apacheds.sh /usr/local/bin/	
