@@ -4,6 +4,7 @@ MAINTAINER "Apirath Promyan @ https://github.com/p-apirath/apacheds"
 
 ENV JDK_VERSION=1.8.0 \
     APACHEDS_VERSION=2.0.0.AM25
+    APACHEDS_INSTANCE=/var/lib/apacheds-${APACHEDS_VERSION}/default
     
 ADD apacheds.sh /usr/local/bin/	
 RUN useradd apacheds
@@ -15,10 +16,10 @@ RUN yum -y update \
     && rm -rf /tmp/apacheds.rpm
     
 RUN mkdir -p /bootstrap \
-    && ln -s /var/lib/apacheds-${APACHEDS_VERSION}/default/partitions /data \
+    && ln -s ${APACHEDS_INSTANCE}/partitions /data \
     && chmod +x /usr/local/bin/apacheds.sh \
     && chown -R apacheds.apacheds /data \
-    && chown -R apacheds.apacheds /var/lib/apacheds-${APACHEDS_VERSION}/default/partitions
+    && chown -R apacheds.apacheds ${APACHEDS_INSTANCE}/partitions
 
 VOLUME /data
 VOLUME /bootstrap
