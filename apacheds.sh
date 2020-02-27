@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APACHEDS_INSTANCE=/var/lib/apacheds-${APACHEDS_VERSION}/default
+# APACHEDS_INSTANCE=/var/lib/apacheds-${APACHEDS_VERSION}/default
 
 function wait_for_ldap {
 	echo "Waiting for LDAP to be available "
